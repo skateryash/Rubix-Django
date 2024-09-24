@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Course{% endblock %}
+
+{% block content %}
+{% comment %} <h1>Course Details</h1> {% endcomment %}
+
+{% comment %} <h1>{{ course.name }}</h1> {% endcomment %}
+
+<div class="d-flex m-4">
+    <a href={% url "courses" %} class="btn btn-outline-primary">Back</a>
+</div>
+
+<div class="card">
+    <img class="card-img-top" src={{course.image.url}} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{course.name}}</h5>
+      <p class="card-text">{{course.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Level: {{level}}</li>
+      <li class="list-group-item">Duration: {{course.duration}} Days</li>
+      <li class="list-group-item">Mode: {{mode}}</li>
+      <li class="list-group-item">Price: {{course.price}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="btn btn-primary">Enroll</a>
+      {% comment %} <a href="#" class="card-link">Another link</a> {% endcomment %}
+    </div>
+  </div>
+
+{% endblock %}

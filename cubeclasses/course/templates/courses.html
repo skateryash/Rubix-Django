@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}All Cubes{% endblock %}
+
+{% block content %}
+<h1>All types of cubes</h1>
+
+<div class="d-flex m-4 justify-content-between">
+    <a href={% url "home" %} class="btn btn-outline-primary">Back</a>
+    <a href={% url "add_course" %} class="btn btn-primary">Add New Course</a>
+</div>
+
+<div class='row'>
+    {% for course in courses %}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card m-2">
+                <img src={{course.image.url}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{course.name}}</h5>
+                    <a href={% url "course" course.id %} class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
