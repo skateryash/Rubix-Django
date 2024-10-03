@@ -1,15 +1,15 @@
 {% extends "layout.html" %}
 
-{% block title %}Add Course{% endblock %}
+{% block title %}Update Course: {{ course.name }}{% endblock %}
 
 {% block content %}
-<h1>Add New Course</h1>
+<h1>Update Course</h1>
 
 <div class="container ">
-    <form method="post" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Add Course</button>
+        <button type="submit">Update</button>
         <a href="{% url 'courses' %}">Cancel</a>
     </form>
 </div>
